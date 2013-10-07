@@ -4,8 +4,7 @@ config["Selenium Tests"] = {
 	rootPath: "../",
 	environment: "node",
 	tests: [
-		"test/selenium-test.js",
-		"test/selenium2-test.js"
+		"test/selenium-test.js"
 	],
 	extensions: [
 		require("../lib/buster-selenium")
@@ -39,3 +38,25 @@ config["WD Tests"] = {
 		}
 	}
 }
+
+// config["Fitbit Login"] = {
+// 	rootPath: "../",
+// 	environment: "node",
+// 	tests: [
+// 		"test/**/*.test.js"
+// 	],
+// 	extensions: [
+// 		require("../lib/buster-selenium")
+// 	],
+// 	"buster-selenium": {
+// 		init: {},
+// 		environment:
+// 		// {
+// 		// 	browserName: 'phantomjs',
+// 		// 	'phantomjs.binary.path': './node_modules/.bin/phantomjs'
+// 		// }
+// 		{
+// 			browserName: 'firefox'
+// 		}
+// 	}
+// };
