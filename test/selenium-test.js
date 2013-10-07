@@ -7,7 +7,7 @@ var testCase = buster.testCase;
 buster.spec.expose();
 
 var goToGoogle = function(done) {
-	var swd = this.webdriver;
+	var swd = this.driver;
 	var browser = this.browser;
 
 	return browser.get('http://www.google.com').then(function(){
@@ -50,12 +50,22 @@ describe('Selenium', function(){
 	// console.log('describe', this);
 
 	// beforeAll(function(){
-	// 	console.log('beforeAll', this);
+	// 	console.log('beforeAll');
 	// });
 
 	// afterAll(function(){
 	// 	console.log('afterAll', this);
 	// });
+
+	before(function(){
+		var webdriver = this.webdriver;
+		this.driver = webdriver.driver;
+		this.browser = webdriver.browser();
+	});
+
+	after(function(){
+		this.browser.quit();
+	});
 
 	for(var i = 0; i < 1;){
 		it('goes to Google + ' + (i++), goToGoogle);

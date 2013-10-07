@@ -8,9 +8,8 @@ buster.spec.expose();
 
 var goToGoogle = function(){
 	var browser = this.browser;
-	var promise = this.browserPromise;
 
-	return promise.then(function(){
+	return browser.init().then(function(){
 		return browser.get('http://www.google.com');
 	}).then(function(){
 		return browser.title();
@@ -46,17 +45,15 @@ var goToGoogle = function(){
 // });
 
 describe('WD', function(){
-	console.log('describe', this);
-
-	beforeAll(function(){
-		console.log('beforeAll', this);
+	before(function(){
+		this.browser = this.webdriver.browser('promise');
 	});
 
-	afterAll(function(){
-		console.log('afterAll', this);
+	after(function(){
+		this.browser.quit();
 	});
 
-	for(var i = 0; i < 10;){
+	for(var i = 0; i < 1;){
 		it('goes to Google + ' + (i++), goToGoogle);
 	}
 });
