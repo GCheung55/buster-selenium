@@ -1,0 +1,19 @@
+{
+    "name": "buster-selenium",
+    "version": "0.0.0",
+    "description": "Buster.js extension to work with selenium-webdriver.. or wd.",
+    "main": "./lib/buster-selenium.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": "",
+    "author": "Garrick Cheung",
+    "license": "MIT",
+    "dependencies": {
+        "selenium-webdriver": "~2.35.1",
+        "wd": "~0.1.5"
+    },
+    "devDependencies": {
+        "buster": "~0.7.6"
+    }
+}
