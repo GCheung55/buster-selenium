@@ -49,22 +49,24 @@ var goToGoogle = function(done) {
 describe('Selenium', function(){
 	// console.log('describe', this);
 
-	// beforeAll(function(){
-	// 	console.log('beforeAll');
-	// });
+	beforeAll(function(){
+		this.awesome = 'beforeAll words';
+	});
 
 	// afterAll(function(){
 	// 	console.log('afterAll', this);
 	// });
 
 	before(function(){
+console.log(this.awesome);
 		var webdriver = this.webdriver;
 		this.driver = webdriver.driver;
 		this.browser = webdriver.browser();
 	});
 
 	after(function(){
-		this.browser.quit();
+		// Returned promise will wait for the browser to close before completing this test
+		return this.browser.quit();
 	});
 
 	for(var i = 0; i < 1;){

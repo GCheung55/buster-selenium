@@ -50,7 +50,8 @@ describe('WD', function(){
 	});
 
 	after(function(){
-		this.browser.quit();
+		// Returned promise will wait for the browser to close before completing this test
+		return this.browser.quit();
 	});
 
 	for(var i = 0; i < 1;){
