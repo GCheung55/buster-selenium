@@ -14,7 +14,7 @@ config["Selenium Tests"] = {
 		environment:
 		{
 			browserName: 'phantomjs',
-			'phantomjs.binary.path': './node_modules/.bin/phantomjs'
+			'phantomjs.binary.path': '../node_modules/.bin/phantomjs'
 		}
 		// {
 		// 	browserName: 'firefox'
