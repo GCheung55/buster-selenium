@@ -46,7 +46,7 @@ testCase('Buster Selenium', {
 				'sets options and webdriver objects': function(){
 					var groupExt = group().extensions[0];
 
-					assert.isObject(options);
+					assert.isObject(groupExt.options);
 					assert.isObject(groupExt.webdriver);
 				}
 			}
