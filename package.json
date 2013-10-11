@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Buster.js extension to work with selenium-webdriver or wd.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/buster-test"
   },
   "repository": "",
   "author": "Garrick Cheung <@GCheung55> (http://github.com/GCheung55)",
@@ -16,5 +16,8 @@
     "buster": "~0.7.6",
     "phantomjs": "~1.9.2-2",
     "buster-configuration": "~0.7.1"
+  },
+  "engines": {
+    "node": "~0.8"
   }
 }
