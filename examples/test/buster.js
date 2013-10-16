@@ -10,11 +10,12 @@ config["Selenium Tests"] = {
 		require("../../lib/buster-selenium")
 	],
 	"buster-selenium": {
+		driver: 'selenium',
 		init: {},
 		environment:
 		{
 			browserName: 'phantomjs',
-			'phantomjs.binary.path': '../node_modules/.bin/phantomjs'
+			'phantomjs.binary.path': './node_modules/.bin/phantomjs'
 		}
 		// {
 		// 	browserName: 'firefox'
@@ -29,9 +30,10 @@ config["WD Tests"] = {
 		"test/wd-test.js"
 	],
 	extensions: [
-		require("../../lib/buster-wd")
+		require("../../lib/buster-selenium")
 	],
-	"buster-wd": {
+	"buster-selenium": {
+		driver: 'wd',
 		init: {},
 		environment: {
 			browserName: 'phantomjs'
