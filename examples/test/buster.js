@@ -11,7 +11,7 @@ config["Selenium Tests"] = {
 	],
 	"buster-selenium": {
 		driver: 'selenium-webdriver',
-		init: {},
+		server: '',
 		environment:
 		{
 			browserName: 'phantomjs',
@@ -34,7 +34,7 @@ config["WD Tests"] = {
 	],
 	"buster-selenium": {
 		driver: 'wd',
-		init: {},
+		server: {},
 		environment: {
 			browserName: 'phantomjs'
 		}

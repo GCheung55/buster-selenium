@@ -57,7 +57,7 @@ testCase('Buster Selenium', {
 		'with buster-selenium options': {
 			'where driver is selenium': withGroup({
 				'buster-selenium': {
-					driver: 'selenium'
+					driver: 'selenium-webdriver'
 				}
 			}, function(group, rs, err, data, loadedTests){
 				return {
