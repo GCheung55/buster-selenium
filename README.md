@@ -1,6 +1,6 @@
 # buster-selenium
 
-[![Build status](https://secure.travis-ci.org/gcheung55/buster-selenium.png?branch=master)](http://travis-ci.org/gcheung55/buster-selenium/)
+[![Build Status](https://travis-ci.org/GCheung55/buster-selenium.png)](https://travis-ci.org/GCheung55/buster-selenium)
 
 An extension for [buster.js](http://busterjs.org) to make it easy to write functional tests with either [selenium-webdriver](https://npmjs.org/package/selenium-webdriver) or [wd](https://npmjs.org/package/wd). This is only for tests run in node environment.
 
@@ -24,7 +24,8 @@ config["Browser tests"] = {
 	tests: ["test/**/*.js"],
 	extensions: [require('buster-selenium')],
 	'buster-selenium': {
-		driver: 'selenium-webdriver', // required, can be either selenium-webdriver or wd
+		// required, can be either selenium-webdriver or wd
+		driver: 'selenium-webdriver'
 	}
 }
 ```
@@ -50,7 +51,7 @@ buster.testCase('goToGoogle', {
 
 ```
 
-** When using wd, executing `this.webdriver.browser()` will automiatcally execute [`init(desired, cb)`](https://github.com/admc/wd#supported-methods) for you. **
+**When using wd, executing `this.webdriver.browser()` will automiatcally execute [`init(desired, cb)`](https://github.com/admc/wd#supported-methods) for you.**
 
 ## Configuration
 
