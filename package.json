@@ -9,7 +9,7 @@
   "author": "Garrick Cheung <@GCheung55> (http://github.com/GCheung55)",
   "license": "MIT",
   "dependencies": {
-    "selenium-webdriver": "~2.35.1",
+    "selenium-webdriver": "~2.35.2",
     "wd": "~0.1.5"
   },
   "devDependencies": {
