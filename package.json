@@ -1,7 +1,8 @@
 {
   "name": "buster-selenium",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Buster.js extension to work with selenium-webdriver or wd.",
+  "keywords": ["buster", "selenium", "webdriver", "wd"],
   "scripts": {
     "test": "node_modules/.bin/buster-test"
   },
