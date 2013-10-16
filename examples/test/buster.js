@@ -10,7 +10,7 @@ config["Selenium Tests"] = {
 		require("../../lib/buster-selenium")
 	],
 	"buster-selenium": {
-		driver: 'selenium',
+		driver: 'selenium-webdriver',
 		init: {},
 		environment:
 		{

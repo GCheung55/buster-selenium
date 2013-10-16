@@ -28,7 +28,8 @@ testCase('selenium', {
 			assert.equals(this.driver.driver, selenium);
 		},
 
-		'has a browser function': {
+		// selenium-webdriver tries to connect to a non-existing selenium-server
+		'// has a browser function': {
 			'that returns a remote': function(){
 				var browser = this.driver.browser();
 				

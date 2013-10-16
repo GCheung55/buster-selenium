@@ -11,16 +11,6 @@ var goToGoogle = function(done) {
 	var browser = this.browser;
 
 	return browser.get('http://www.google.com').then(function(){
-		var d = swd.promise.defer();
-
-		browser.wait(function(){
-			return browser.getTitle().then(function(title){
-				return title === 'Google'
-			});
-		}).then(d.fulfill);
-
-		return d.promise;
-	}).then(function(){
 		return browser.getTitle();
 	}).then(function(title) {
 		assert.equals(title, 'Google')
@@ -47,18 +37,7 @@ var goToGoogle = function(done) {
 }
 
 describe('Selenium', function(){
-	// console.log('describe', this);
-
-	beforeAll(function(){
-		this.awesome = 'beforeAll words';
-	});
-
-	// afterAll(function(){
-	// 	console.log('afterAll', this);
-	// });
-
 	before(function(){
-console.log(this.awesome);
 		var webdriver = this.webdriver;
 		this.driver = webdriver.driver;
 		this.browser = webdriver.browser();
