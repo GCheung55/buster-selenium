@@ -57,8 +57,22 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 
 ## Configuration
 
-* `driver` - (*string*) - required, choose between `selenium-webdriver`, `wd`, or `webdriverjs`.
+* `driver` - (*string* or *function*) - required, choose `selenium-webdriver`, `wd`, or `webdriverjs` strings or define a function that returns anything you want to use as the driver.
 * `config` - (*object*) - configuration for the webdriver library. Each library is slightly different.
+
+#### Example
+
+```javascript
+{
+	driver: function(config){
+		return new require('someOtherWebdriver')(config);
+	},
+	config: {
+		exampleOption: true,
+		exampleOption2: false
+	}
+}
+```
 
 ### selenium-webdriver `config`
 

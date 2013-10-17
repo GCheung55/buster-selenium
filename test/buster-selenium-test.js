@@ -42,18 +42,48 @@ testCase('Buster Selenium', {
 		assert.isObject(extension);
 	},
 
-	'configuration': {
-		'empty buster-selenium config group': withGroup({}, function(group, rs, err, data, loadedTests){
-			return {
-				'sets options but webdriver is undefined': function(){
-					var groupExt = group().extensions[0];
+	'create should consume an object with driver option': {
+		'as a string': {
+			'wd, selenium-webdriver, or webdriverjs': function(){
+				assert.defined(extension.create({
+					driver: 'wd'
+				}).webdriver);
 
-					assert.isObject(groupExt.options);
-					refute.defined(groupExt.webdriver);
-				}
+				assert.defined(extension.create({
+					driver: 'selenium-webdriver'
+				}).webdriver);
+
+				assert.defined(extension.create({
+					driver: 'webdriverjs'
+				}).webdriver);
+			},
+
+			'anything besides wd, selenium-webdriver, or webdriverjs throws': function(){
+				assert.exception(function(){
+					extension.create({
+						driver: 'notAnyModule'
+					});
+				});
 			}
-		}),
+		},
 
+		'as a function and use the returned value as the webdriver object': function(){
+			var webdriverObj = {
+				'webdriverObj': true,
+				'browser': function(){}
+			};
+
+			var ext = extension.create({
+				driver: function(){
+					return webdriverObj;
+				}
+			});
+
+			assert.same(webdriverObj, ext.webdriver);
+		}
+	},
+
+	'configuration': {
 		'with buster-selenium options': {
 			'where driver is selenium': withGroup({
 				'buster-selenium': {
@@ -85,17 +115,17 @@ testCase('Buster Selenium', {
 				}
 			}),
 
-			'where driver is undefined': withGroup({
+			'where driver is webdriverjs': withGroup({
 				'buster-selenium': {
-					driver: undefined
+					driver: 'webdriverjs'
 				}
 			}, function(group, rs, err, data, loadedTests){
 				return {
-					'sets options but webdriver is undefined': function(){
+					'sets options and webdriver object': function(){
 						var groupExt = group().extensions[0];
 
 						assert.isObject(groupExt.options);
-						refute.defined(groupExt.webdriver);
+						assert.isObject(groupExt.webdriver);
 					}
 				}
 			})
