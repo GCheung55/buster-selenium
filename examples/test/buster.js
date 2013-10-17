@@ -1,3 +1,5 @@
+var buster_selenium = require("../../lib/buster-selenium");
+
 var config = module.exports;
 
 config["Selenium Tests"] = {
@@ -7,36 +9,49 @@ config["Selenium Tests"] = {
 		"test/selenium-test.js"
 	],
 	extensions: [
-		require("../../lib/buster-selenium")
+		buster_selenium
 	],
 	"buster-selenium": {
 		driver: 'selenium-webdriver',
-		server: '',
-		environment:
-		{
-			browserName: 'phantomjs',
-			'phantomjs.binary.path': './node_modules/.bin/phantomjs'
+		config: {
+			server: '',
+			desiredCapabilities:
+			{
+				browserName: 'phantomjs',
+				'phantomjs.binary.path': './node_modules/.bin/phantomjs'
+			}
 		}
-		// {
-		// 	browserName: 'firefox'
-		// }
 	}
 };
 
 config["WD Tests"] = {
-	rootPath: "../",
-	environment: "node",
+	extends: "Selenium Tests",
 	tests: [
 		"test/wd-test.js"
 	],
-	extensions: [
-		require("../../lib/buster-selenium")
-	],
 	"buster-selenium": {
 		driver: 'wd',
-		server: {},
-		environment: {
-			browserName: 'phantomjs'
+		config: {
+			server: {},
+			desiredCapabilities: {
+				browserName: 'phantomjs'
+			}
 		}
 	}
-}
+};
+
+config["Webdriverjs Tests"] = {
+	extends: "Selenium Tests",
+	tests: [
+		"test/webdriverjs-test.js"
+	],
+	"buster-selenium": {
+		driver: 'webdriverjs',
+		config: {
+			desiredCapabilities: {
+				browserName: 'phantomjs'
+            },
+            logLevel: 'silent'
+		}
+	}
+};

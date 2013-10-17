@@ -36,14 +36,6 @@ var goToGoogle = function(){
 	});
 };
 
-// testCase("WD", {
-// 	setUp: function(){},
-
-// 	tearDown: function(){},
-
-// 	"go to google": 
-// });
-
 describe('WD', function(){
 	before(function(){
 		this.browser = this.webdriver.browser('promise');

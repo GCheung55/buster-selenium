@@ -1,11 +1,11 @@
 var buster = require('buster');
-var webdriver = require('../lib/selenium');
-var selenium = require('selenium-webdriver');
+var webdriver = require('../lib/webdriverjs')
+var webdriverjs = require('webdriverjs');
 
 var assert = buster.assert;
 var testCase = buster.testCase;
 
-testCase('selenium', {
+testCase('webdriverjs', {
 	'should be a function': function(){
 		assert.isFunction(webdriver);
 	},
@@ -24,15 +24,16 @@ testCase('selenium', {
 			delete this.driver;
 		},
 
-		'has a selenium-webdriver module': function(){
-			assert.equals(this.driver.driver, selenium);
+		'has a wd module': function(){
+			assert.equals(this.driver.driver, webdriverjs);
 		},
 
-		// selenium-webdriver could try to connect to a non-existing selenium-server, so deferring
+		// webdriverjs could try to connect to a non-existing selenium-server, so deferring
 		'// has a browser function that returns a remote': function(){
 			var browser = this.driver.browser();
+			var webdriverjsBrowser = webdriverjs.remote().init();
 			
-			assert.isObject(browser);
+			assert.equals(browser, webdriverjsBrowser);
 		}
 	}
 });

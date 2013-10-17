@@ -52,20 +52,3 @@ describe('Selenium', function(){
 		it('goes to Google + ' + (i++), goToGoogle);
 	}
 });
-
-// var cases = {
-// 	setUp: function(){
-// 		// this.browser = this.remote.build();
-// 	},
-
-// 	tearDown: function(){
-// 		// this.browser.quit();
-// 		// delete this.browser;
-// 	}
-// };
-
-// for(var i = 0; i < 10;){
-// 	cases['go to google' + (i++)] = goToGoogle;
-// }
-
-// testCase("Selenium", cases);
