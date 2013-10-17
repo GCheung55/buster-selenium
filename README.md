@@ -97,7 +97,7 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 
 ### webdriverjs `config`
 
-Refer to [webdriverjs options docs](https://github.com/camme/webdriverjs#options) for an explaination of the `config` options.
+Refer to [webdriverjs options docs](https://github.com/camme/webdriverjs#options) for an explanation of the `config` options.
 
 **Consider setting `logLevel` property to "silent" when using `xml` reporter.**
 
