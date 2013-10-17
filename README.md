@@ -22,13 +22,13 @@ Add `buster-selenium` extension and corresponding options, to the buster.js conf
 var config = module.exports;
 
 config["Browser tests"] = {
-	rootPath: "../",
-	tests: ["test/**/*.js"],
-	extensions: [require('buster-selenium')],
-	'buster-selenium': {
-		// required, can be either selenium-webdriver or wd
-		driver: 'selenium-webdriver'
-	}
+    rootPath: "../",
+    tests: ["test/**/*.js"],
+    extensions: [require('buster-selenium')],
+    'buster-selenium': {
+        // required, can be either selenium-webdriver or wd
+        driver: 'selenium-webdriver'
+    }
 }
 ```
 
@@ -38,17 +38,17 @@ Write the tests! Please check the documentation of the webdriver module you choo
 var buster = require('buster');
 
 buster.testCase('goToGoogle', {
-	'Load google.com': function(){
-		var browser = this.webdriver.browser();
+    'Load google.com': function(){
+        var browser = this.webdriver.browser();
 
-		return browser.get('http://www.google.com').then(function(){
-			return browser.getTitle();
-		}).then(function(title) {
-			assert.equals(title, 'Google');
-		}).then(function(){
-			browser.quit();
-		});
-	}
+        return browser.get('http://www.google.com').then(function(){
+            return browser.getTitle();
+        }).then(function(title) {
+            assert.equals(title, 'Google');
+        }).then(function(){
+            browser.quit();
+        });
+    }
 });
 
 ```
@@ -64,13 +64,13 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 
 ```javascript
 {
-	driver: function(config){
-		return new require('someOtherWebdriver')(config);
-	},
-	config: {
-		exampleOption: true,
-		exampleOption2: false
-	}
+    driver: function(config){
+        return new require('someOtherWebdriver')(config);
+    },
+    config: {
+        exampleOption: true,
+        exampleOption2: false
+    }
 }
 ```
 
@@ -84,11 +84,11 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 #### Example
 ```javascript
 {
-	server: 'http://localhost:4444',
-	desiredCapabilities: {
-		browserName: 'phantomjs',		
-		'phantomjs.binary.path': './node_modules/.bin/phantomjs'
-	}
+    server: 'http://localhost:4444',
+    desiredCapabilities: {
+        browserName: 'phantomjs',       
+        'phantomjs.binary.path': './node_modules/.bin/phantomjs'
+    }
 }
 ```
 
@@ -102,10 +102,10 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 #### Example
 ```javascript
 {
-	server: 'http://localhost:444',
-	desiredCapabilities: {
-		browserName: 'phantomjs'
-	}
+    server: 'http://localhost:444',
+    desiredCapabilities: {
+        browserName: 'phantomjs'
+    }
 }
 ```
 
