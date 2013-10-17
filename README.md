@@ -58,7 +58,8 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 ## Configuration
 
 * `driver` - (*string* or *function*) - required, choose `selenium-webdriver`, `wd`, or `webdriverjs` strings or define a function that returns anything you want to use as the driver.
-* `config` - (*object*) - configuration for the webdriver library. Each library is slightly different.
+* `config` - (*object*) - optional, configuration for the webdriver library. Each library is slightly different.
+* `timeout` - (*number*) - optional, defaults to 10000. Define how long a test runs before it timesout. Extend the time of your tests if the webdriver-driven browser takes a really long time to complete tasks.
 
 #### Example
 

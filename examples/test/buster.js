@@ -13,6 +13,7 @@ config["Selenium Tests"] = {
     ],
     "buster-selenium": {
         driver: 'selenium-webdriver',
+        timeout: 2050, // this may cause the test to timeout, done intentionally
         config: {
             server: '',
             desiredCapabilities:
