@@ -17,16 +17,16 @@
   "author": "Garrick Cheung <@GCheung55> (http://github.com/GCheung55)",
   "license": "MIT",
   "dependencies": {
-    "selenium-webdriver": "~2.35.2",
-    "wd": "~0.1.5",
-    "webdriverjs": "~0.7.14"
+    "selenium-webdriver": ">=2.37.0",
+    "wd": ">=0.2.3",
+    "webdriverjs": ">=0.7.14"
   },
   "devDependencies": {
-    "buster": "~0.7.6",
-    "phantomjs": "~1.9.2-2",
-    "buster-configuration": "~0.7.1"
+    "buster": ">=0.7.6",
+    "phantomjs": ">=1.9.2-2",
+    "buster-configuration": ">=0.7.1"
   },
   "engines": {
-    "node": "~0.8"
+    "node": ">=0.8"
   }
 }

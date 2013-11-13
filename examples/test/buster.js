@@ -13,13 +13,13 @@ config["Selenium Tests"] = {
     ],
     "buster-selenium": {
         driver: 'selenium-webdriver',
-        timeout: 2050, // this may cause the test to timeout, done intentionally
+        timeout: 3050, // this may cause the test to timeout, done intentionally
         config: {
             server: '',
             desiredCapabilities:
             {
                 browserName: 'phantomjs',
-                'phantomjs.binary.path': './node_modules/.bin/phantomjs'
+                'phantomjs.binary.path': '../node_modules/.bin/phantomjs'
             }
         }
     }

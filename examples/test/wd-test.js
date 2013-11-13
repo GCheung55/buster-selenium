@@ -7,11 +7,10 @@ var testCase = buster.testCase;
 buster.spec.expose();
 
 var goToGoogle = function(){
+    var driver = this.webdriver.driver;
     var browser = this.browser;
 
-    return browser.init().then(function(){
-        return browser.get('http://www.google.com');
-    }).then(function(){
+    return browser.get('http://www.google.com').then(function(){
         return browser.title();
     }).then(function(title){
         assert.equals(title, 'Google');
@@ -24,7 +23,7 @@ var goToGoogle = function(){
     }).then(function(button){
         return button.click();
     }).then(function(){
-        var defer = browser.Q.defer();
+        var defer = (driver.Q || browser.Q).defer();
 
         browser.waitForCondition('document.title === "webdriver - Google Search"', 5000, defer.resolve);
 
@@ -38,7 +37,8 @@ var goToGoogle = function(){
 
 describe('WD', function(){
     before(function(){
-        this.browser = this.webdriver.browser('promise');
+        var browser = this.browser = this.webdriver.browser('promise');
+        return browser.init();
     });
 
     after(function(){

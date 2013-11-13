@@ -1,5 +1,5 @@
 var buster = require('buster');
-var webdriver = require('../lib/wd')
+var webdriver = require('../lib/factory/wd')
 var wd = require('wd');
 
 var assert = buster.assert;
@@ -29,6 +29,16 @@ testCase('wd', {
         },
 
         'has a browser function': {
+            'that returns a promiseChainRemote': function(){
+                var browser = this.driver.browser('promiseChain');
+                var wdPromiseChainBrowser = wd.promiseChainRemote();
+
+                // Need to delete the init because it is replaced by lib/wd
+                delete browser.init;
+                delete wdPromiseChainBrowser.init;
+                
+                assert.equals(browser, wdPromiseChainBrowser);
+            },
             'that returns a promiseRemote': function(){
                 var browser = this.driver.browser('promise');
                 var wdPromiseBrowser = wd.promiseRemote();

@@ -1,5 +1,5 @@
 var buster = require('buster');
-var webdriver = require('../lib/webdriverjs')
+var webdriver = require('../lib/factory/webdriverjs')
 var webdriverjs = require('webdriverjs');
 
 var assert = buster.assert;
