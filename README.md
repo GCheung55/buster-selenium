@@ -131,3 +131,56 @@ Refer to [webdriverjs options docs](https://github.com/camme/webdriverjs#options
     logLevel: 'silent',
 }
 ```
+
+## Usage
+
+Every test will be extended with a `webdriver` object with access to two properties.
+
+* `driver` - (*object*) - The `require`'d webdriver node module. Ex. require('wd'); or require('selenium-webdriver');
+* `browser` - (*function*) - A wrapper function around the webdrivers browser builder/initializer. Returns a browser session object with the `desiredCapbilities` config.
+
+### Example
+
+```javascript
+// assume we are using selenium-webdriver
+buster.testCase('google', {
+    setUp: function(){
+        // Get a browser session
+        this.browser = this.webdriver.browser();
+    },
+
+    tearDown: function(){
+        // Quit the browser session, you should clean up every time
+        this.browser.quit();
+    },
+
+    'go to google.com': function(){
+        // Go to the google webpage and assert that its true
+        // Buster tests can accept promises!
+        return browser.get('http://www.google.com').then(function(){
+            assert(true);
+        })
+    }
+});
+```
+
+### Notes: `wd`
+
+`wd` provides three (at the time of this writing) types of remote/browser objects. A regular continuation style, a promise, and a promise chain. To access them, pass the `browser` function a string!
+
+```javascript
+// Give me the promise remote/browser!
+this.browser = this.webdriver.browser('promise');
+
+// or
+
+// Give me the promise chain remote/browser!
+this.browser = this.webdriver.browser('promiseChain');
+
+// or
+
+// Give me the regular continuation style remote/browser!
+this.browser = this.webdriver.browser();
+```
+
+Refer to [`wd docs`](https://github.com/admc/wd) for more info.
