@@ -5,35 +5,40 @@ var config = module.exports;
 config["Selenium Tests"] = {
     rootPath: "../",
     environment: "node",
-    tests: [
-        "test/selenium-test.js"
-    ],
     extensions: [
         buster_selenium
     ],
+    tests: [
+        "test/selenium-test.js"
+    ],
     "buster-selenium": {
         driver: 'selenium-webdriver',
-        timeout: 3050, // this may cause the test to timeout, done intentionally
+        timeout: 250, // this may cause the test to timeout, done intentionally
         config: {
-            server: '',
-            desiredCapabilities:
-            {
+            server: 'http://localhost:4444/wd/hub',
+            desiredCapabilities: {
                 browserName: 'phantomjs',
-                'phantomjs.binary.path': '../node_modules/.bin/phantomjs'
+                // 'phantomjs.binary.path': '../node_modules/.bin/phantomjs'
             }
         }
     }
 };
 
 config["WD Tests"] = {
-    extends: "Selenium Tests",
+    rootPath: "../",
+    environment: "node",
+    extensions: [
+        buster_selenium
+    ],
     tests: [
         "test/wd-test.js"
     ],
     "buster-selenium": {
         driver: 'wd',
         config: {
-            server: {},
+            server: {
+                port: 4444
+            },
             desiredCapabilities: {
                 browserName: 'phantomjs'
             }
@@ -42,13 +47,18 @@ config["WD Tests"] = {
 };
 
 config["Webdriverjs Tests"] = {
-    extends: "Selenium Tests",
+    rootPath: "../",
+    environment: "node",
+    extensions: [
+        buster_selenium
+    ],
     tests: [
         "test/webdriverjs-test.js"
     ],
     "buster-selenium": {
         driver: 'webdriverjs',
         config: {
+            port: 4444,
             desiredCapabilities: {
                 browserName: 'phantomjs'
             },

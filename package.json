@@ -23,8 +23,9 @@
   },
   "devDependencies": {
     "buster": ">=0.7.6",
+    "buster-configuration": ">=0.7.1",
     "phantomjs": ">=1.9.2-2",
-    "buster-configuration": ">=0.7.1"
+    "selenium-standalone": "^2.42.0-2.9.0"
   },
   "engines": {
     "node": ">=0.8"
