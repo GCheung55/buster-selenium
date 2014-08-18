@@ -29,7 +29,7 @@ var goToGoogle = function(done){
         // });
 };
 
-describe('Webdriverjs', function(){
+describe('WebdriverIO', function(){
     before(function(){
         this.browser = this.webdriver.browser();
     });
