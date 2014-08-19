@@ -1,6 +1,6 @@
 {
   "name": "buster-selenium",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Buster.js extension to work with selenium-webdriver, wd, or webdriverio.",
   "keywords": [
     "buster",
