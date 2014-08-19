@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/GCheung55/buster-selenium.png)](https://travis-ci.org/GCheung55/buster-selenium)
 
-An extension for [buster.js](http://busterjs.org) to make it easy to write functional tests with either [selenium-webdriver](https://npmjs.org/package/selenium-webdriver), [wd](https://npmjs.org/package/wd), and [webdriverjs](https://npmjs.org/package/webdriverjs).
+An extension for [buster.js](http://busterjs.org) to make it easy to write functional tests with either [selenium-webdriver](https://npmjs.org/package/selenium-webdriver), [wd](https://npmjs.org/package/wd), and [webdriverio](https://npmjs.org/package/webdriverio).
 
 **This extensions is only for tests run in node environment.**
 
@@ -57,7 +57,7 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 
 ## Configuration
 
-* `driver` - (*string* or *function*) - required, choose `selenium-webdriver`, `wd`, or `webdriverjs` strings or define a function that returns anything you want to use as the driver.
+* `driver` - (*string* or *function*) - required, choose `selenium-webdriver`, `wd`, or `webdriverio` strings or define a function that returns anything you want to use as the driver.
 * `config` - (*object*) - optional, configuration for the webdriver library. Each library is slightly different.
 * `timeout` - (*number*) - optional, defaults to 10000. Define how long a test runs before it timesout. Extend the time of your tests if the webdriver-driven browser takes a really long time to complete tasks.
 
@@ -87,7 +87,7 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 {
     server: 'http://localhost:4444',
     desiredCapabilities: {
-        browserName: 'phantomjs',       
+        browserName: 'phantomjs',
         'phantomjs.binary.path': './node_modules/.bin/phantomjs'
     }
 }
@@ -110,13 +110,13 @@ Go check out [Examples](https://github.com/GCheung55/buster-selenium/tree/master
 }
 ```
 
-### webdriverjs `config`
+### webdriverio `config`
 
-Refer to [webdriverjs options docs](https://github.com/camme/webdriverjs#options) for an explanation of the `config` options.
+Refer to [webdriverio options docs](https://github.com/webdriverio/webdriverio#options) for an explanation of the `config` options.
 
 **Consider setting `logLevel` property to "silent" when using `xml` reporter.**
 
-#### Example (taken from a [webdriverjs example](https://github.com/camme/webdriverjs/tree/master/examples))
+#### Example (taken from a [webdriverio example](https://github.com/webdriverio/webdriverio/tree/master/examples))
 ```javascript
 {
     desiredCapabilities: {

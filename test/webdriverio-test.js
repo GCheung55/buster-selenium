@@ -1,11 +1,11 @@
 var buster = require('buster');
-var webdriver = require('../lib/factory/webdriverjs')
-var webdriverjs = require('webdriverjs');
+var webdriver = require('../lib/factory/webdriverio')
+var webdriverio = require('webdriverio');
 
 var assert = buster.assert;
 var testCase = buster.testCase;
 
-testCase('webdriverjs', {
+testCase('webdriverio', {
     'should be a function': function(){
         assert.isFunction(webdriver);
     },
@@ -25,15 +25,15 @@ testCase('webdriverjs', {
         },
 
         'has a wd module': function(){
-            assert.equals(this.driver.driver, webdriverjs);
+            assert.equals(this.driver.driver, webdriverio);
         },
 
-        // webdriverjs could try to connect to a non-existing selenium-server, so deferring
+        // WebdriverIO could try to connect to a non-existing selenium-server, so deferring
         '// has a browser function that returns a remote': function(){
             var browser = this.driver.browser();
-            var webdriverjsBrowser = webdriverjs.remote().init();
-            
-            assert.equals(browser, webdriverjsBrowser);
+            var webdriverioBrowser = webdriverio.remote().init();
+
+            assert.equals(browser, webdriverioBrowser);
         }
     }
 });

@@ -46,17 +46,17 @@ config["WD Tests"] = {
     }
 };
 
-config["Webdriverjs Tests"] = {
+config["WebdriverIO Tests"] = {
     rootPath: "../",
     environment: "node",
     extensions: [
         buster_selenium
     ],
     tests: [
-        "test/webdriverjs-test.js"
+        "test/webdriverio-test.js"
     ],
     "buster-selenium": {
-        driver: 'webdriverjs',
+        driver: 'webdriverio',
         config: {
             port: 4444,
             desiredCapabilities: {

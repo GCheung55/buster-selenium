@@ -44,7 +44,7 @@ testCase('Buster Selenium', {
 
     'create should consume an object with driver option': {
         'as a string': {
-            'wd, selenium-webdriver, or webdriverjs': function(){
+            'wd, selenium-webdriver, or webdriverio': function(){
                 assert.defined(extension.create({
                     driver: 'wd'
                 }).webdriver);
@@ -54,11 +54,11 @@ testCase('Buster Selenium', {
                 }).webdriver);
 
                 assert.defined(extension.create({
-                    driver: 'webdriverjs'
+                    driver: 'webdriverio'
                 }).webdriver);
             },
 
-            'anything besides wd, selenium-webdriver, or webdriverjs throws': function(){
+            'anything besides wd, selenium-webdriver, or webdriverio throws': function(){
                 assert.exception(function(){
                     extension.create({
                         driver: 'notAnyModule'
@@ -115,9 +115,9 @@ testCase('Buster Selenium', {
                 }
             }),
 
-            'where driver is webdriverjs': withGroup({
+            'where driver is webdriverio': withGroup({
                 'buster-selenium': {
-                    driver: 'webdriverjs'
+                    driver: 'webdriverio'
                 }
             }, function(group, rs, err, data, loadedTests){
                 return {
